@@ -1,4 +1,4 @@
-from telegram.ext import Updater, MessageHandler, Filters
+
 from transformers import pipeline
 
 # Replace YOUR_BOT_TOKEN with the token provided by BotFather
