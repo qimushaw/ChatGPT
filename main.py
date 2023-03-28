@@ -1,29 +1,22 @@
-
-from transformers import pipeline
-
-# Replace YOUR_BOT_TOKEN with the token provided by BotFather
-updater = Updater(token='5955950302:AAFL_RVjydcb1t3IoZTWKJog8aO9ZndxfBE', use_context=True)
-
-# Define a function to generate responses using GPT
-def generate_response(text):
-    # Load the GPT-2 model with default settings
-    generator = pipeline('text-generation', model='gpt2')
-
-    # Generate a response to the input text
-    response = generator(text, max_length=50)[0]['generated_text']
-
-    return response
+from telegram.ext import Updater, MessageHandler, Filters
 
 # Define a function to handle incoming messages
 def handle_message(update, context):
-    text = update.message.text
-    response = generate_response(text)
-    update.message.reply_text(response)
+    message = update.message.text
+    # Your code to process the message goes here
+    # Example code to send a reply message
+    update.message.reply_text('Thanks for your message!')
 
-# Create a message handler and register it with the updater
-message_handler = MessageHandler(Filters.text, handle_message)
-updater.dispatcher.add_handler(message_handler)
+def main():
+    # Set up the Telegram bot
+    updater = Updater('5955950302:AAFL_RVjydcb1t3IoZTWKJog8aO9ZndxfBE', use_context=True)
+    dispatcher = updater.dispatcher
+    # Set up a message handler to handle incoming messages
+    message_handler = MessageHandler(Filters.text, handle_message)
+    dispatcher.add_handler(message_handler)
+    # Start the bot
+    updater.start_polling()
+    updater.idle()
 
-# Start the bot
-updater.start_polling()
-
+if __name__ == '__main__':
+    main()
