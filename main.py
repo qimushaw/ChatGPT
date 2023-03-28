@@ -26,3 +26,4 @@ updater.dispatcher.add_handler(message_handler)
 
 # Start the bot
 updater.start_polling()
+
