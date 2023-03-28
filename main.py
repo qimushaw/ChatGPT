@@ -4,7 +4,7 @@ import openai
 import os
 
 # Set up OpenAI API key
-openai.api_key = os.environ['OPENAI_API_KEY']
+openai.api_key = os.environ['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']
 
 # Define function to generate response using GPT
 def generate_response(text):
@@ -30,7 +30,7 @@ def handle_message(update, context):
 # Define main function to start the bot
 def main():
     # Set up Telegram bot and updater
-    token = os.environ['TELEGRAM_BOT_TOKEN']
+    token = os.environ['6133300401:AAH-K0ljX3mi9wGC3jBOrRLybc2yOn58V5I']
     updater = Updater(token, use_context=True)
     dispatcher = updater.dispatcher
 
